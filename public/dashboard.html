@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Banking Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="dashboard-nav">
+            <h2>MyBank</h2>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="transfer.html">Transfer Money</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <main class="dashboard-main">
+            <h1>Welcome, <span id="userName">User</span></h1>
+            
+            <div class="account-summary">
+                <div class="balance-card">
+                    <h3>Account Balance</h3>
+                    <p class="balance" id="accountBalance">$0.00</p>
+                    <p class="account-number" id="accountNumber">Account: ####</p>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <button onclick="window.location.href='transfer.html'" class="btn-primary">Transfer Money</button>
+                    <button onclick="window.location.href='transactions.html'" class="btn-secondary">View Transactions</button>
+                </div>
+            </div>
+
+            <div class="recent-transactions">
+                <h2>Recent Transactions</h2>
+                <div id="transactionsList">
+                    <!-- Transactions will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 
