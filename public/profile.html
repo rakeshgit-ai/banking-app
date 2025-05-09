@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Banking Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="dashboard-nav">
+            <h2>MyBank</h2>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="transfer.html">Transfer Money</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="#" class="active">Profile</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <main class="dashboard-main">
+            <h1>Profile</h1>
+            
+            <div class="profile-container">
+                <div class="profile-section">
+                    <div class="section-header">
+                        <h2>Account Information</h2>
+                        <button id="addAccountBtn" class="btn-secondary">Request New Account</button>
+                    </div>
+                    <div id="accountsList">
+                        <!-- Account cards will be loaded here -->
+                    </div>
+                </div>
+
+                <div class="profile-section" id="addAccountForm" style="display: none;">
+                    <h2>Request New Account</h2>
+                    <form id="createAccountForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="accountHolder">Account Holder Name</label>
+                            <input type="text" id="accountHolder" name="accountHolder" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountNumber">Account Number</label>
+                            <input type="text" id="accountNumber" name="accountNumber" 
+                                   pattern="[0-9]{10,16}" title="Account number should be 10-16 digits"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accountType">Account Type</label>
+                            <select id="accountType" name="accountType" required>
+                                <option value="">Select Account Type</option>
+                                <option value="savings">Savings Account</option>
+                                <option value="checking">Checking Account</option>
+                                <option value="salary">Salary Account</option>
+                                <option value="fixed">Fixed Deposit Account</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="branchName">Branch Name</label>
+                            <input type="text" id="branchName" name="branchName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ifscCode">IFSC Code</label>
+                            <input type="text" id="ifscCode" name="ifscCode" 
+                                   pattern="[A-Z]{4}[0-9]{7}" 
+                                   title="IFSC code should be in format: ABCD0123456"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" id="phoneNumber" name="phoneNumber" 
+                                   pattern="[0-9]{10}" 
+                                   title="Please enter a valid 10-digit phone number"
+                                   required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="upiId">UPI ID (Optional)</label>
+                            <input type="text" id="upiId" name="upiId" 
+                                   pattern="[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z][a-zA-Z]{2,64}"
+                                   title="Please enter a valid UPI ID (e.g., username@bank)">
+                        </div>
+                        
+                        <div class="button-group">
+                            <button type="submit" class="btn-primary">Submit Request</button>
+                            <button type="button" id="cancelAccountBtn" class="btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="profile-section">
+                    <h2>Personal Information</h2>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" readonly>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Update Profile</button>
+                    </form>
+                </div>
+
+                <div class="profile-section">
+                    <h2>Security</h2>
+                    <form id="passwordForm" class="profile-form">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" name="currentPassword" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" name="newPassword" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="js/profile.js"></script>
+</body>
+</html> 

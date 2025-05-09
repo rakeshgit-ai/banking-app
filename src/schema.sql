@@ -1,6 +1,8 @@
-CREATE DATABASE IF NOT EXISTS banking_app;
-USE banking_app;
+-- Drop existing tables if they exist
+DROP TABLE IF EXISTS accounts;
+DROP TABLE IF EXISTS users;
 
+-- Create users table
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -10,6 +12,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- Create accounts table
 CREATE TABLE accounts (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -23,16 +26,4 @@ CREATE TABLE accounts (
     balance DECIMAL(10, 2) DEFAULT 0.00,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id)
-);
-
-CREATE TABLE transactions (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    from_account_id INT NOT NULL,
-    to_account_id INT NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
-    transaction_type ENUM('transfer', 'deposit', 'withdrawal') NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (from_account_id) REFERENCES accounts(id),
-    FOREIGN KEY (to_account_id) REFERENCES accounts(id)
 ); 

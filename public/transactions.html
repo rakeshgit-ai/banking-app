@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History - Banking Application</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="dashboard-nav">
+            <h2>MyBank</h2>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="transfer.html">Transfer Money</a></li>
+                <li><a href="#" class="active">Transactions</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+        </nav>
+        
+        <main class="dashboard-main">
+            <h1>Transaction History</h1>
+            
+            <div class="transaction-filters">
+                <select id="transactionType">
+                    <option value="all">All Transactions</option>
+                    <option value="sent">Money Sent</option>
+                    <option value="received">Money Received</option>
+                </select>
+                
+                <select id="timeRange">
+                    <option value="7">Last 7 days</option>
+                    <option value="30">Last 30 days</option>
+                    <option value="90">Last 90 days</option>
+                    <option value="all">All time</option>
+                </select>
+            </div>
+
+            <div class="transactions-list" id="transactionsList">
+                <!-- Transactions will be loaded here -->
+            </div>
+        </main>
+    </div>
+    <script src="js/transactions.js"></script>
+</body>
+</html> 
